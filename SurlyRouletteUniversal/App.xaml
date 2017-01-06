@@ -1,0 +1,22 @@
+﻿<Application
+    x:Class="SurlyRouletteUniversal.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SurlyRouletteUniversal"
+    RequestedTheme="Light">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Common/SurlyRouletteStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <!-- Application-specific resources -->
+            <x:String x:Key="AppName">Surly Roulette</x:String>
+            <SolidColorBrush x:Key="GamblingRed" Color="#FFC1272D"/>
+            <Thickness x:Key="NoBorder">0</Thickness>
+            <Thickness x:Key="BetGrid">2</Thickness>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>
