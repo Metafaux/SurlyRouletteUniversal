@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace SurlyRoulette.Models
+namespace SurlyRouletteUniversal.Models
 {
     class Game
     {
-       /* Inside Bets:
+        /* Inside Bets:
         * Straight 35:1
         * Street 11:1
         * Corner 8:1
@@ -57,7 +60,7 @@ namespace SurlyRoulette.Models
         // double zero is represented by index 37
         //public readonly int[] numeralSequence = new int[] { 0, 28, 9, 26, 30, 11, 7, 20, 32, 17, 5, 22, 34, 15, 3, 24, 36, 13, 1, 37, 27, 10, 25, 29, 12, 8, 19, 31, 18, 6, 21, 33, 16, 4, 23, 35, 14, 2 };
         //counter clockwise
-        public readonly int[] numeralSequence = new int[] {37, 1, 13, 36, 24, 3, 15, 34, 22, 5, 17, 32, 20, 7, 11, 30, 26, 9, 28, 0, 2, 14, 35, 23, 4, 16, 33, 21, 6, 18, 31, 19, 8, 12, 29, 25, 10, 27  };
+        public readonly int[] numeralSequence = new int[] { 37, 1, 13, 36, 24, 3, 15, 34, 22, 5, 17, 32, 20, 7, 11, 30, 26, 9, 28, 0, 2, 14, 35, 23, 4, 16, 33, 21, 6, 18, 31, 19, 8, 12, 29, 25, 10, 27 };
 
         private const int boardQty = 36;
         private Random spinGen = new Random();
@@ -66,7 +69,7 @@ namespace SurlyRoulette.Models
         // This maps the payout factors to the indexes on the board
         // Initialized in constructor
         private int[] payouts = new int[50];
-        
+
         // This will be broken out into its own class
         // when multiplayer can be introduced on a later version
         //public Player player1;
@@ -80,7 +83,7 @@ namespace SurlyRoulette.Models
         public int BetIndex { get; set; }
         public int BetAmount { get; set; }
         // list of arrays containing bet info
-        public List<int[]> BetList;
+        //public List<int[]> BetList;
 
         public Game()
         {
@@ -99,7 +102,7 @@ namespace SurlyRoulette.Models
         public void PlaceBet()  //(Player p, int boardID, int betAmount)
         {
             // 
-            
+
             // Params: Bet square, bet amount
             // Check if Player.bet == 0
             // Prompt for bet placement
@@ -115,7 +118,7 @@ namespace SurlyRoulette.Models
         //    int[] listItem = new int[] { boardId, betAmount };
         //    BetList.Add(listItem);
         //}
-        
+
         public void Spin(int winIndexInput)
         {
             // Random number generation
@@ -152,6 +155,5 @@ namespace SurlyRoulette.Models
                 BetPayout = 0;
             }
         }
-
     }
 }

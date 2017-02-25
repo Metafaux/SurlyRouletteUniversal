@@ -1,18 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿// ********************************************************************************
+// SURLY ROULETTE
+// Universal Windows Game
+// Author Alexander D. Wilson
+// Copyright 2017 Surly Industries LLC
+// ********************************************************************************
+
+// +MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM+
+// MM                   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM                    MM
+// MM                  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM                   MM
+// MM                 MMMMMMMMMMMMMMM           MMMMMMMMMMMMMMM                  MM
+// MM                MMMMMMMMMMMMMMM             MMMMMMMMMMMMMMM                 MM
+// MM               MMMMMMMMM                           MMMMMMMMM                MM
+// MM              MMMMMMMM   +MMM+               +NMM+   MMMMMMMM               MM
+// MM             OMMMMMMMMMMMMMMMMMMMM       MMMMMMMMMMMMMMMMMMMMM              MM
+// MM            :MMMMMMMMMMMMMMMMMMMMMMMM~MMMMMMMMMMMMMMMMMMMMMMMM:             MM
+// MM            MMMMMMMMM   MMMMMMMMM.MMMMMMM.MMMMMMMMM   MMMMMMMMM             MM
+// MM           MMMMMMMMMMM    MMMMM      I      MMMMM    ~MMMMMMMMMM            MM
+// MM          MMMMMMMMMMMMM                              MMMMMMMMMMMM           MM
+// MM         MMMMMMMMMMMMMMM                           MMMMMMMMMMMMMMM          MM
+// MM        MMMMMMMMMMMMMMMMMMMMM                 MMMMMMMMMMMMMMMMMMMMM         MM
+// MM       MMMMMMMMMMMMMMMMMMMMMM     MM...MM     MMMMMMMMMMMMMMMMMMMMMM        MM
+// MM      MMMMMMMMMMMMMMMMMMMMMM       MMMMM       MMMMMMMMMMMMMMMMMMMMMM       MM
+// MM    .MMMMMMMMMMMMMMMMMMMMMMM                   MMMMMMMMMMMMMMMMMMMMMMM.     MM
+// MM    MMMMMMMMMMMMMMMMMMMMMMM        NMMMM        MMMMMMMMMMMMMMMMMMMMMMM     MM
+// MM   :MMMMMMMMMMMMMMMMMMMMMMM     +MMM   MMM+     MMMMMMMMMMMMMMMMMMMMMMM:    MM
+// MM  :MMMMMMMMMMMMMMMMMMMMMMMM    MMM       MMM    MMMMMMMMMMMMMMMMMMMMMMMM:   MM
+// MM  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM           MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM   MM
+// MM MMMMMMMMMMMMMMMMMMMMMMMMMMM                   MMMMMMMMMMMMMMMMMMMMMMMMMMM. MM
+// M=MMMMMMMMMMMMMMMMMMMMMMMMMMMMM                 MMMMMMMMMMMMMMMMMMMMMMMMMMMMM MM
+// MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM+             +MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+// +MM                            MMMM         MMMM                             MM+
+// +                                 MMMMMMMMMMM                                  +
+
+using System;
+//using System.Collections.Generic;
+//using System.IO;
+//using System.Linq;
+//using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+//using Windows.Foundation;
+//using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+//using Windows.UI.Xaml.Controls.Primitives;
+//using Windows.UI.Xaml.Data;
+//using Windows.UI.Xaml.Input;
+//using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace SurlyRouletteUniversal
@@ -72,7 +106,7 @@ namespace SurlyRouletteUniversal
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(Views.GamePage), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

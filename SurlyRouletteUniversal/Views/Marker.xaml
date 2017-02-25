@@ -1,13 +1,14 @@
 ﻿<UserControl
-    x:Class="SurlyRoulette.Views.Marker"
+    x:Class="SurlyRouletteUniversal.Views.Marker"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:SurlyRoulette.Views"
+    xmlns:local="using:SurlyRouletteUniversal.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="35"
     d:DesignWidth="30">
+
     <UserControl.Resources>
         <SolidColorBrush x:Key="WinIndicatorColor" Color="#FFF10084"/>
         <SolidColorBrush x:Key="FocusIndicatorColor" Color="#FF008BFF" />
@@ -15,30 +16,30 @@
     </UserControl.Resources>
 
     <Viewbox Width="30" Height="35">
-    	<VisualStateManager.VisualStateGroups>
-    		<VisualStateGroup x:Name="VisualStateGroup">
-    			<VisualStateGroup.Transitions>
-    				<VisualTransition GeneratedDuration="0:0:0.7" To="Portrait"/>
-    				<VisualTransition From="Portrait" GeneratedDuration="0:0:0.7"/>
-    			</VisualStateGroup.Transitions>
-    			<VisualState x:Name="Portrait">
-    				<Storyboard>
-    					<DoubleAnimation Duration="0" To="-90" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="canvas" d:IsOptimized="True"/>
-    				</Storyboard>
-    			</VisualState>
-    		</VisualStateGroup>
-    	</VisualStateManager.VisualStateGroups>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.7" To="Portrait"/>
+                    <VisualTransition From="Portrait" GeneratedDuration="0:0:0.7"/>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Portrait">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="-90" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="canvas" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Canvas x:Name="canvas" Height="70" Width="60" RenderTransformOrigin="0.5,0.5">
-        	<Canvas.RenderTransform>
-        		<CompositeTransform/>
-        	</Canvas.RenderTransform>
-                    <Ellipse x:Name="circleBottom" Fill="{StaticResource MarkerNormalColor}" Height="60" Width="60" Canvas.Top="5"/>
+            <Canvas.RenderTransform>
+                <CompositeTransform/>
+            </Canvas.RenderTransform>
+            <Ellipse x:Name="circleBottom" Fill="{StaticResource MarkerNormalColor}" Height="60" Width="60" Canvas.Top="5"/>
             <Path Data="F1M22.2378,58.9736L22.2378,63.9736C17.1598,62.6086,12.5138,59.9266,8.7918,56.2096L8.7918,51.2096z" Fill="{StaticResource chipStripeGray}" Height="12.764" Canvas.Left="8.792" Stretch="Fill" Canvas.Top="51.21" Width="13.446"/>
             <Path Data="F1M51.209,51.2168L37.779,58.9788L37.765,63.9778C43.043,62.5628,47.607,59.8198,51.209,56.2098z" Fill="{StaticResource chipStripeGray}" Height="12.761" Canvas.Left="37.765" Stretch="Fill" Canvas.Top="51.217" Width="13.444"/>
             <Path Data="F1M60,30L58,30L58.971,37.764L58.971,42.764C59.645,40.26,59.995,37.652,59.996,35L60,35z" Fill="{StaticResource chipStripeGray}" Height="12.764" Canvas.Left="58" Stretch="Fill" Canvas.Top="30" Width="2"/>
             <Path Data="F1M2,30L0,30L0,35L0.004,35C0.004,37.564,0.331,40.17,1.026,42.765L1.026,37.765z" Fill="{StaticResource chipStripeGray}" Height="12.765" Canvas.Left="0" Stretch="Fill" Canvas.Top="30" Width="2"/>
             <Path x:Name="shading" Data="F1M0,30L0,35C0,51.568,13.432,65,30.001,65C46.568,65,60,51.568,60,35L60,30z" Fill="Black" Height="35" Canvas.Left="0" Opacity="0.30000299215316772" Stretch="Fill" Canvas.Top="30" Width="60"/>
-                    <Ellipse x:Name="circleTop" Height="60" Width="60" Fill="{StaticResource MarkerNormalColor}"/>
+            <Ellipse x:Name="circleTop" Height="60" Width="60" Fill="{StaticResource MarkerNormalColor}"/>
             <Path x:Name="stripes" Data="F1M53.1758,36.2119L58.9708,37.7639C60.2948,32.8399,60.3888,27.5149,58.9758,22.2349L53.1808,23.7879C54.3118,28.0119,54.2368,32.2719,53.1758,36.2119 M6.82380000000001,23.7899L1.0298,22.2359C-0.295199999999994,27.1599,-0.388199999999998,32.4849,1.0258,37.7649L6.8218,36.2119C5.68980000000001,31.9879,5.7648,27.7289,6.82380000000001,23.7899 M46.9668,46.9679C44.0858,49.8559,40.4348,52.0499,36.2118,53.1829L37.7648,58.9789C43.0428,57.5629,47.6078,54.8189,51.2088,51.2099z M13.0338,13.0309C15.9158,10.1449,19.5668,7.9499,23.7898,6.8169L22.2368,1.0219C16.9578,2.4379,12.3938,5.1809,8.7928,8.7899z M37.7638,1.0259L36.2098,6.8199C40.2738,7.9139,43.9888,10.0589,46.9668,13.0319L51.2088,8.7889C47.4868,5.0739,42.8418,2.3919,37.7638,1.0259 M23.7908,53.1799L22.2378,58.9739C17.1598,57.6079,12.5138,54.9269,8.7918,51.2099L13.0328,46.9679C16.0118,49.9399,19.7268,52.0859,23.7908,53.1799" Fill="{StaticResource chipStripeGray}" Height="57.957" Canvas.Left="0" Stretch="Fill" Canvas.Top="1.022" Width="60"/>
             <Grid x:Name="grid" Width="60" Height="60" HorizontalAlignment="Center" Canvas.Left="0">
                 <!--<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,12"/>-->
@@ -46,5 +47,4 @@
             </Grid>
         </Canvas>
     </Viewbox>
-    
 </UserControl>

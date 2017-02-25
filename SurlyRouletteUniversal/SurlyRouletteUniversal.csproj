@@ -89,24 +89,39 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\MedulaOne-Regular.ttf" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\LayoutAwarePage.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Game.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\BettingGridButton.cs" />
-    <Compile Include="Views\Chip.xaml.cs" />
-    <Compile Include="Views\GamePage.xaml.cs" />
-    <Compile Include="Views\Marker.xaml.cs" />
-    <Compile Include="Views\NumberOval.xaml.cs" />
-    <Compile Include="Views\RouletteTable.xaml.cs" />
-    <Compile Include="Views\RouletteWheel.xaml.cs" />
+    <Compile Include="Views\Chip.xaml.cs">
+      <DependentUpon>Chip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Marker.xaml.cs">
+      <DependentUpon>Marker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NumberOval.xaml.cs">
+      <DependentUpon>NumberOval.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RouletteTable.xaml.cs">
+      <DependentUpon>RouletteTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RouletteWheel.xaml.cs">
+      <DependentUpon>RouletteWheel.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -115,6 +130,24 @@
     <None Include="SurlyRouletteUniversal_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\chip005.png" />
+    <Content Include="Assets\chip010.png" />
+    <Content Include="Assets\chip025.png" />
+    <Content Include="Assets\chip100.png" />
+    <Content Include="Assets\ChipMarker.png" />
+    <Content Include="Assets\feltBackground.jpg" />
+    <Content Include="Assets\FeltTexture_green.jpg" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\logoWide.png" />
+    <Content Include="Assets\RouletteBall.png" />
+    <Content Include="Assets\RouletteFullScreen.png" />
+    <Content Include="Assets\RouletteMasthead.jpg" />
+    <Content Include="Assets\RouletteSpinner.png" />
+    <Content Include="Assets\RouletteWheelBG.png" />
+    <Content Include="Assets\RouletteWheelCenter.png" />
+    <Content Include="Assets\RouletteWheelTint.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -129,37 +162,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Common\SurlyRouletteStyles.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Common\StandardStyles.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Common\SurlyRouletteStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Chip.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GamePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Marker.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NumberOval.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RouletteTable.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RouletteWheel.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup />

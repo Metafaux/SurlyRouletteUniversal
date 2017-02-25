@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+//using Windows.UI.Xaml.Controls.Primitives;
 
-namespace SurlyRoulette.Views
+namespace SurlyRouletteUniversal.Views
 {
-    public class BettingGridButton : Button
+    class BettingGridButton : Button
     {
         public bool IsChecked { get; set; }
         public int MarkerID { get; set; }

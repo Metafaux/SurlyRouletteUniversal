@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -13,16 +14,17 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Popups;
-using SurlyRoulette.Models;
+using SurlyRouletteUniversal.Models;
 
-// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
-namespace SurlyRoulette.Views
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+
+namespace SurlyRouletteUniversal.Views
 {
     /// <summary>
-    /// A basic page that provides characteristics common to most applications.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class GamePage : SurlyRoulette.Common.LayoutAwarePage
+    public sealed partial class GamePage : Page
     {
         public static readonly DependencyProperty TotalBetProperty = DependencyProperty.Register("TotalBet", typeof(int), typeof(RouletteTable), null);
         public int TotalBet
@@ -36,7 +38,7 @@ namespace SurlyRoulette.Views
                 base.SetValue(TotalBetProperty, value);
             }
         }
-        
+
         private readonly Game _currentGame = new Game();
         private const double numberSlotDegrees = 360 / 38;
         private const double slotQty = 38;
@@ -60,7 +62,7 @@ namespace SurlyRoulette.Views
             {
                 // rotate markers
                 // rotate number ovals
-                
+
                 for (int i = 0; i < markerListLength; i++)
                 {
                     tableControl.MarkerList[i].IsRotated = true;
@@ -118,20 +120,20 @@ namespace SurlyRoulette.Views
         /// </param>
         /// <param name="pageState">A dictionary of state preserved by this page during an earlier
         /// session.  This will be null the first time a page is visited.</param>
-        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
-        {
+        //protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        //{
             //if (pageState != null && pageState.ContainsKey("walletAmountText"))
             //{
             //    WalletAmount.Text = pageState["walletAmountText"].ToString();
             //}
 
-            Windows.Storage.ApplicationDataContainer roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
-            if (roamingSettings.Values.ContainsKey("userWalletAmount"))
-            {
-                _currentGame.Wallet = Convert.ToInt16( roamingSettings.Values["userWalletAmount"]);
-                WalletAmount.Text = roamingSettings.Values["userWalletAmount"].ToString();
-            }
-        }
+        //    Windows.Storage.ApplicationDataContainer roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
+        //    if (roamingSettings.Values.ContainsKey("userWalletAmount"))
+        //    {
+        //        _currentGame.Wallet = Convert.ToInt16(roamingSettings.Values["userWalletAmount"]);
+        //        WalletAmount.Text = roamingSettings.Values["userWalletAmount"].ToString();
+        //    }
+        //}
 
         /// <summary>
         /// Preserves state associated with this page in case the application is suspended or the
@@ -139,10 +141,10 @@ namespace SurlyRoulette.Views
         /// requirements of <see cref="SuspensionManager.SessionState"/>.
         /// </summary>
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
-        protected override void SaveState(Dictionary<String, Object> pageState)
-        {
+        //protected override void SaveState(Dictionary<String, Object> pageState)
+        //{
             //pageState["walletAmountText"] = _currentGame.Wallet.ToString();
-        }
+        //}
 
         public void ShowRowAndColumn()
         {
@@ -176,7 +178,7 @@ namespace SurlyRoulette.Views
             DoubleAnimation centerAnimation = new DoubleAnimation();
             DoubleAnimation ballSpinAnimation = new DoubleAnimation();
             DoubleAnimation ballBounceAnimation = new DoubleAnimation();
-              
+
             // Generate a random number
             int randomGen = spinGen.Next(37);
             double spinRandom = (randomGen / slotQty) * 360;
@@ -185,7 +187,7 @@ namespace SurlyRoulette.Views
             ballBounceAnimation.From = 102;
             ballBounceAnimation.To = 307;
             ballBounceAnimation.BeginTime = TimeSpan.FromMilliseconds(rotationTime / 2);
-            ballBounceAnimation.Duration = TimeSpan.FromMilliseconds(rotationTime/2);
+            ballBounceAnimation.Duration = TimeSpan.FromMilliseconds(rotationTime / 2);
             BounceEase bounceDef = new BounceEase();
             bounceDef.Bounces = 2;
             bounceDef.Bounciness = 2;
@@ -193,7 +195,7 @@ namespace SurlyRoulette.Views
             ballBounceAnimation.EasingFunction.EasingMode = EasingMode.EaseOut;
             Storyboard.SetTargetProperty(ballBounceAnimation, "(Canvas.Top)");
             Storyboard.SetTarget(ballBounceStoryboard, rouletteBall);
-            
+
             spinAnimation.By = spinAmount;
             spinAnimation.Duration = TimeSpan.FromMilliseconds(rotationTime);
             spinAnimation.EasingFunction = new QuadraticEase();
@@ -234,7 +236,7 @@ namespace SurlyRoulette.Views
         {
             CompositeTransform stopAngleTransform = new CompositeTransform();
             stopAngleTransform = (CompositeTransform)numberwang.RenderTransform;
-            
+
             double stopAngle = stopAngleTransform.Rotation;
 
             double angleRemainder = stopAngle % 360;

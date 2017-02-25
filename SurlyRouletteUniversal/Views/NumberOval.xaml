@@ -1,13 +1,14 @@
 ﻿<UserControl
-    x:Class="SurlyRoulette.Views.NumberOval"
+    x:Class="SurlyRouletteUniversal.Views.NumberOval"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:SurlyRoulette.Views"
+    xmlns:local="using:SurlyRouletteUniversal.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="70"
     d:DesignWidth="50">
+
     <UserControl.Resources>
         <Style x:Name="OvalText" TargetType="TextBlock">
             <!--<Setter Property="FontFamily" Value="Agency FB"/>-->
@@ -27,27 +28,27 @@
         <SolidColorBrush x:Key="GamblingRed" Color="#FFC1272D"/>
     </UserControl.Resources>
     <Viewbox>
-    	<VisualStateManager.VisualStateGroups>
-    		<VisualStateGroup x:Name="ViewStates">
-    			<VisualStateGroup.Transitions>
-    				<VisualTransition GeneratedDuration="0"/>
-    				<VisualTransition GeneratedDuration="0:0:0.7" To="Portrait"/>
-    				<VisualTransition From="Portrait" GeneratedDuration="0:0:0.7"/>
-    			</VisualStateGroup.Transitions>
-    			<VisualState x:Name="Portrait">
-    				<Storyboard>
-    					<DoubleAnimation Duration="0" To="-90" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="numeralText" d:IsOptimized="True"/>
-    				</Storyboard>
-    			</VisualState>
-    		</VisualStateGroup>
-    	</VisualStateManager.VisualStateGroups>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="ViewStates">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0"/>
+                    <VisualTransition GeneratedDuration="0:0:0.7" To="Portrait"/>
+                    <VisualTransition From="Portrait" GeneratedDuration="0:0:0.7"/>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Portrait">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="-90" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="numeralText" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid x:Name="OvalWrapper" Style="{StaticResource OvalBG}" Width="50" Height="70" Margin="0,0,0,0">
             <!--<Border BorderBrush="White" BorderThickness="0,1,1,0"/>-->
             <Ellipse x:Name="oval" Margin="5"/>
             <TextBlock x:Name="numeralText" Text="33" Style="{StaticResource OvalText}" RenderTransformOrigin="0.5,0.5">
-            	<TextBlock.RenderTransform>
-            		<CompositeTransform/>
-            	</TextBlock.RenderTransform>
+                <TextBlock.RenderTransform>
+                    <CompositeTransform/>
+                </TextBlock.RenderTransform>
             </TextBlock>
             <!--<TextBlock x:Name="numeralTextDecoy" Text="33" FontFamily="Assets/MedulaOne-Regular.ttf#Medula One" />-->
             <!--<ContentPresenter Style="{StaticResource OvalText}"/>-->

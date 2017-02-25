@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -21,11 +22,11 @@ using System.Diagnostics;
  * Exposes properties of Bet IDs and payouts
  * 
  * Author Alexander D. Wilson
- * Copyright 2012 Surly Industries LLC
+ * Copyright 2017 Surly Industries LLC
  */
 
-namespace SurlyRoulette.Views
-{   
+namespace SurlyRouletteUniversal.Views
+{
     public sealed partial class RouletteTable : UserControl
     {
         public static readonly DependencyProperty CurrentOddsProperty = DependencyProperty.Register(
@@ -45,7 +46,7 @@ namespace SurlyRoulette.Views
 
         //public int TotalBet { get; set; }
         public int BetSum { get; set; }
-        
+
         public int Payout { get; set; }
         public string PayoutString { get; set; }
 
@@ -53,7 +54,7 @@ namespace SurlyRoulette.Views
         public int ColumnIndex { get; set; }
 
         private int LastBetAmount { get; set; }
-        
+
         private BettingGridButton CurrentButton;
         public Marker CurrentMarker;
 
@@ -84,7 +85,7 @@ namespace SurlyRoulette.Views
             0, 1, 0,
             1, 0, 1
         };
- 
+
         // CONSTRUCTOR
         public RouletteTable()
         {
@@ -120,7 +121,7 @@ namespace SurlyRoulette.Views
             {
                 betIndex = ColumnIndex - 2;
             }
-            int[] betArray = new int[] {betIndex};
+            int[] betArray = new int[] { betIndex };
 
             betName = "Straight " + betIndex.ToString();
             AddMarker(betPayout, betArray, rowPos, colPos, 4, 3, betName);
@@ -170,13 +171,13 @@ namespace SurlyRoulette.Views
             }
             else if (RowIndex == (int)this.Resources["SplitBtnRow23"])
             {
-                betArray = new int[] {ColumnIndex+1, ColumnIndex+2};
+                betArray = new int[] { ColumnIndex + 1, ColumnIndex + 2 };
                 colSpan = 3;
             }
 
             int rowPos = RowIndex - 1;
             int colPos = ColumnIndex - 1;
-            string betName = "Split " + betArray[0].ToString() +"/"+ betArray[1].ToString();
+            string betName = "Split " + betArray[0].ToString() + "/" + betArray[1].ToString();
             AddMarker(betPayout, betArray, rowPos, colPos, 4, colSpan, betName);
         }
 
@@ -197,7 +198,7 @@ namespace SurlyRoulette.Views
             }
 
             int[] betArray = new int[] { ColumnIndex - 3, ColumnIndex - 2, ColumnIndex - 1, ColumnIndex, ColumnIndex + 1, ColumnIndex + 2 };
-            string betName = "Double Street " + betArray[0].ToString() +"/"+ betArray[3].ToString();
+            string betName = "Double Street " + betArray[0].ToString() + "/" + betArray[3].ToString();
             AddMarker(betPayout, betArray, rowPos, colPos, rowSpan, colSpan, betName);
         }
 
@@ -210,19 +211,19 @@ namespace SurlyRoulette.Views
             int[] betArray = new int[] { ColumnIndex - 3, ColumnIndex - 2, ColumnIndex, ColumnIndex + 1 };
             if (RowIndex == (int)this.Resources["SplitBtnRow23"])
             {
-                betArray = new int[] { ColumnIndex - 2, ColumnIndex - 1, ColumnIndex+1, ColumnIndex + 2 };
+                betArray = new int[] { ColumnIndex - 2, ColumnIndex - 1, ColumnIndex + 1, ColumnIndex + 2 };
             }
 
             int rowPos = RowIndex - 1;
             int colPos = ColumnIndex - 1;
-            string betName = "Square" + betArray[0].ToString() +"/"+betArray[1].ToString() +"/"+betArray[2].ToString() +"/"+betArray[3].ToString();
+            string betName = "Square" + betArray[0].ToString() + "/" + betArray[1].ToString() + "/" + betArray[2].ToString() + "/" + betArray[3].ToString();
             AddMarker(betPayout, betArray, rowPos, colPos, 4, 4, betName);
         }
 
         private void TranslateCoordinates(object sender, RoutedEventArgs e)
         {
             //BetDrawer.Visibility = Visibility.Visible;
-            
+
             //CurrentButton = e.OriginalSource as ToggleButton;
             CurrentButton = (BettingGridButton)sender;
             int br = Grid.GetRow(CurrentButton);
@@ -236,7 +237,7 @@ namespace SurlyRoulette.Views
         {
             string mkrId = "Marker" + mkrRow.ToString() + mkrCol.ToString();
             this.CurrentOdds = pay.ToString() + " to 1";
-            
+
             if (CurrentMarker != null)
             {
                 CurrentMarker.SetFocus(false);
@@ -261,8 +262,8 @@ namespace SurlyRoulette.Views
                 CurrentMarker = newMarker;
                 markerList.Add(newMarker);
                 CurrentButton.IsChecked = true;
-                
-                
+
+
             }
 
             if (CurrentMarker != null)
@@ -384,7 +385,7 @@ namespace SurlyRoulette.Views
                 betArray[i] = startIndex + i;
                 //Debug.WriteLine("BET ARRAY ITEM " + i.ToString() + " INDEX = " + betArray[i].ToString());
             }
-            string betName = "Dozen " + betArray[0].ToString() +"-"+ betArray[11].ToString();
+            string betName = "Dozen " + betArray[0].ToString() + "-" + betArray[11].ToString();
             AddMarker(betPayout, betArray, rowPos, colPos, 1, 12, betName);
         }
 
@@ -410,7 +411,7 @@ namespace SurlyRoulette.Views
                 // 1 to 18
                 for (int i = 0; i < 18; i++)
                 {
-                    betArray[i] = i+1;
+                    betArray[i] = i + 1;
                     //Debug.WriteLine("BET ARRAY ITEM " + i.ToString() + " INDEX = " + betArray[i].ToString());
                 }
                 betName = "1 to 18";
@@ -455,7 +456,7 @@ namespace SurlyRoulette.Views
                 {
                     if (colorKey[i] == 1)
                     {
-                        betArray[ovalIndex] = i+1;
+                        betArray[ovalIndex] = i + 1;
                         //Debug.WriteLine("BET ARRAY ITEM " + ovalIndex.ToString() + " INDEX = " + betArray[ovalIndex].ToString());
                         ovalIndex++;
                     }

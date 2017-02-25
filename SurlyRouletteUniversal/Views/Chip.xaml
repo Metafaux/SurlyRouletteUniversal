@@ -1,8 +1,8 @@
 ﻿<UserControl
-    x:Class="SurlyRoulette.Views.Chip"
+    x:Class="SurlyRouletteUniversal.Views.Chip"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:SurlyRoulette.Views"
+    xmlns:local="using:SurlyRouletteUniversal.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -27,5 +27,6 @@
 
             <TextBlock x:Name="amountText" TextWrapping="Wrap" Text="100" Canvas.Top="16" Width="60" Foreground="White" TextAlignment="Center" FontSize="26" FontFamily="Segoe UI Light" VerticalAlignment="Center"/>
         </Canvas>
+
     </Grid>
 </UserControl>

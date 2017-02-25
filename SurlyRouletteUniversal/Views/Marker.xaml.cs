@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.IO;
+//using System.Linq;
+//using System.Runtime.InteropServices.WindowsRuntime;
+//using Windows.Foundation;
+//using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
+//using Windows.UI.Xaml.Controls.Primitives;
+//using Windows.UI.Xaml.Data;
+//using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+//using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace SurlyRoulette.Views
+namespace SurlyRouletteUniversal.Views
 {
     public sealed partial class Marker : UserControl
     {
@@ -53,7 +54,8 @@ namespace SurlyRoulette.Views
         //    ClearBet();
         //}
 
-        public void AddToBet(int addAmt) {
+        public void AddToBet(int addAmt)
+        {
             BetAmount += addAmt;
             if (BetAmount > 9995)
             {
@@ -78,7 +80,7 @@ namespace SurlyRoulette.Views
                 string mkrName = this.Name;
                 if (BetArray[i] == wheelIndex)
                 {
-                    payoutAmount += BetAmount * (Payout+1);
+                    payoutAmount += BetAmount * (Payout + 1);
 
                     _hasWon = true;
                     circleBottom.Fill = (Brush)this.Resources["WinIndicatorColor"];
@@ -86,7 +88,7 @@ namespace SurlyRoulette.Views
                     amountText.Text = "+" + payoutAmount.ToString();
                 }
             }
-            
+
             return payoutAmount;
         }
 
@@ -114,6 +116,5 @@ namespace SurlyRoulette.Views
                 circleTop.Fill = (Brush)this.Resources["MarkerNormalColor"];
             }
         }
-
     }
 }

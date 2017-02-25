@@ -8,6 +8,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
                 <ResourceDictionary Source="Common/SurlyRouletteStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -14,13 +15,13 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace SurlyRoulette.Views
+namespace SurlyRouletteUniversal.Views
 {
     public sealed partial class Chip : UserControl
     {
         public int Denomination { get; set; }
-        public string Content { get; set; }
-        
+        public string TextContent { get; set; }
+
         private SolidColorBrush fiveRed = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 169, 6, 65));
         private SolidColorBrush tenBlue = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 102, 137));
         private SolidColorBrush twentyfiveGreen = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 32, 145, 0));
@@ -28,18 +29,18 @@ namespace SurlyRoulette.Views
 
         private SolidColorBrush chipCodeColor = new SolidColorBrush();
         private int chipAmount;
-        
+
         public Chip()
         {
             this.InitializeComponent();
-            this.Loaded +=Chip_Loaded;
+            this.Loaded += Chip_Loaded;
             //DefaultStyleKey = typeof(Chip);
-            
+
         }
 
         void Chip_Loaded(object sender, RoutedEventArgs e)
         {
-            chipAmount = Convert.ToInt16(this.Content);
+            chipAmount = Convert.ToInt16(this.TextContent);
 
             if (chipAmount == 10)
             {
@@ -62,7 +63,7 @@ namespace SurlyRoulette.Views
             // Or register dependency property?
             //chipCodeColor.Color = twentyfiveGreen.Color;
             SetChipColor();
-            amountText.Text = this.Content;
+            amountText.Text = this.TextContent;
         }
 
         private void SetChipColor()

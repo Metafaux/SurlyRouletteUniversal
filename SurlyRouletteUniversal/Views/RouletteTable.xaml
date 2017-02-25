@@ -1,14 +1,17 @@
-﻿<UserControl x:Name="TableControl"
-    x:Class="SurlyRoulette.Views.RouletteTable"
+﻿<UserControl
+    x:Class="SurlyRouletteUniversal.Views.RouletteTable"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:SurlyRoulette.Views"
-    xmlns:common="using:SurlyRoulette.Common"
+    xmlns:local="using:SurlyRouletteUniversal.Views"
+    xmlns:common="using:SurlyRouletteUniversal.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="305"
-    d:DesignWidth="580" Width="580" Height="305">
+    d:DesignWidth="580"
+    Width="580"
+    Height="305">
+
     <UserControl.Resources>
         <x:Double x:Key="MinButtonSize">20</x:Double>
 
@@ -200,460 +203,460 @@
 
     </UserControl.Resources>
     <!--<Viewbox x:Name="viewbox" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">-->
-    	<!--<Viewbox.RenderTransform>
+    <!--<Viewbox.RenderTransform>
     		<CompositeTransform/>
     	</Viewbox.RenderTransform>-->
-        <Grid x:Name="tableGrid" RenderTransformOrigin="0.5,0.5" Width="580" Height="305">
-        	<Grid.RenderTransform>
-        		<CompositeTransform/>
-        	</Grid.RenderTransform>
-        	<Grid.Projection>
-        		<PlaneProjection/>
-        	</Grid.Projection>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="{StaticResource SplitPlusNumberHalf}"/>
-
-                <RowDefinition Height="{StaticResource SplitColumn}"/>
-                <!--<RowDefinition Height="{StaticResource NumberRowHeight}"/>-->
-                <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
-                <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
-                <RowDefinition Height="{StaticResource SplitColumn}"/>
-
-                <RowDefinition Height="{StaticResource SplitColumn}"/>
-                <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
-                <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
-                <RowDefinition Height="{StaticResource SplitColumn}"/>
-
-                <RowDefinition Height="{StaticResource SplitColumn}"/>
-                <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
-                <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
-                <RowDefinition Height="{StaticResource SplitColumn}"/>
-
-                <RowDefinition Height="{StaticResource SplitColumn}"/>
-                <RowDefinition Height="{StaticResource OutsideRowHeight}"/>
-
-                <RowDefinition Height="{StaticResource OutsideRowHeight}"/>
-                <RowDefinition Height="{StaticResource SplitColumn}"/>
-                <RowDefinition Height="{StaticResource SplitColumn}"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-
-                <ColumnDefinition Width="{StaticResource OutsideColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-
-                <ColumnDefinition Width="{StaticResource SplitColumn}"/>
-                <ColumnDefinition Width="{StaticResource OutsideColumnWidth}"/>
-            </Grid.ColumnDefinitions>
-
-            <!-- GRID CELL FILL COLORS -->
-            <Rectangle Grid.Row="15" Grid.Column="14" Grid.RowSpan="2" Grid.ColumnSpan="6" Fill="{StaticResource FiveChipRed}" Opacity="0.7"/>
-            <Rectangle Grid.Row="15" Grid.Column="20" Grid.RowSpan="2" Grid.ColumnSpan="6" Fill="Black" Opacity="0.7"/>
-
-            <!--Borders for Roulette Table-->
-            <!--4 sided enclosure: All Number Columns, Zero bets, and 2 to 1s-->
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="2" Grid.Row="1" Grid.RowSpan="12" Grid.ColumnSpan="40" CornerRadius="4"/>
-
-            <!--Zero and Double Zero divider-->
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="0,1,0,0" Grid.Row="7" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
-
-            <!--Rows of Number Grid. Single Border with Top and Bottom visible -->
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="0,1" Grid.Row="5" Grid.Column="2" Grid.RowSpan="4" Grid.ColumnSpan="38"/>
-
-            <!--Columns of Number Grid. Each Border is a pair (left and right)-->
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="2,0,2,2" Grid.Row="1" Grid.Column="2" Grid.RowSpan="16" Grid.ColumnSpan="36" CornerRadius="4"/>
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="5" Grid.RowSpan="12"/>
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0" Grid.Row="1" Grid.Column="8" Grid.RowSpan="12" Grid.ColumnSpan="3"/>
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="14" Grid.RowSpan="16"/>
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="17" Grid.RowSpan="12"/>
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0" Grid.Row="1" Grid.Column="20" Grid.RowSpan="12" Grid.ColumnSpan="3"/>
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="26" Grid.RowSpan="16"/>
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="29" Grid.RowSpan="12"/>
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0" Grid.Row="1" Grid.Column="32" Grid.RowSpan="12" Grid.ColumnSpan="3"/>
-            <!--<Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="37" Grid.RowSpan="16" Grid.ColumnSpan="1"/>-->
-
-            <!--Vertical Dividers of Outside Bet bottom row-->
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="15" Grid.Column="8" Grid.RowSpan="2"/>
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="15" Grid.Column="20" Grid.RowSpan="2"/>
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="15" Grid.Column="32" Grid.RowSpan="2"/>
-
-            <!--Boundaries of outside bet area-->
-            <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="0,1,0,0" Grid.Row="15" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="36"/>
-
-            <!-- Background artwork for grid -->
-            <!-- 1, 2, 3 -->
-            <local:NumberOval Content="1" Grid.Row="9" Grid.Column="2" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="2" Grid.Row="5" Grid.Column="2" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="3" Grid.Row="1" Grid.Column="2" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 4, 5, 6 -->
-            <local:NumberOval Content="4" Grid.Row="9" Grid.Column="5" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="5" Grid.Row="5" Grid.Column="5" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="6" Grid.Row="1" Grid.Column="5" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 7, 8, 9 -->
-            <local:NumberOval Content="7" Grid.Row="9" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="8" Grid.Row="5" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="9" Grid.Row="1" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 10, 11, 12 -->
-            <local:NumberOval Content="10" Grid.Row="9" Grid.Column="11" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="11" Grid.Row="5" Grid.Column="11" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="12" Grid.Row="1" Grid.Column="11" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 13, 14, 15 -->
-            <local:NumberOval Content="13" Grid.Row="9" Grid.Column="14" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="14" Grid.Row="5" Grid.Column="14" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="15" Grid.Row="1" Grid.Column="14" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 16, 17, 18 -->
-            <local:NumberOval Content="16" Grid.Row="9" Grid.Column="17" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="17" Grid.Row="5" Grid.Column="17" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="18" Grid.Row="1" Grid.Column="17" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 19, 20, 21 -->
-            <local:NumberOval Content="19" Grid.Row="9" Grid.Column="20" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="20" Grid.Row="5" Grid.Column="20" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="21" Grid.Row="1" Grid.Column="20" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 22, 23, 24 -->
-            <local:NumberOval Content="22" Grid.Row="9" Grid.Column="23" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="23" Grid.Row="5" Grid.Column="23" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="24" Grid.Row="1" Grid.Column="23" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 25, 26, 27 -->
-            <local:NumberOval Content="25" Grid.Row="9" Grid.Column="26" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="26" Grid.Row="5" Grid.Column="26" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="27" Grid.Row="1" Grid.Column="26" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 28, 29, 30 -->
-            <local:NumberOval Content="28" Grid.Row="9" Grid.Column="29" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="29" Grid.Row="5" Grid.Column="29" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="30" Grid.Row="1" Grid.Column="29" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 31, 32, 33 -->
-            <local:NumberOval Content="31" Grid.Row="9" Grid.Column="32" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="32" Grid.Row="5" Grid.Column="32" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="33" Grid.Row="1" Grid.Column="32" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- 34, 35, 36 -->
-            <local:NumberOval Content="34" Grid.Row="9" Grid.Column="35" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="35" Grid.Row="5" Grid.Column="35" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-            <local:NumberOval Content="36" Grid.Row="1" Grid.Column="35" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-
-            <!-- ****************** END BACKGROUND ARTWORK ************************* -->
-            
-            <!-- Outside bet text blocks / icons -->
-            <TextBlock Text="1 to 18" Grid.Row="15" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource OutsideBetTextBlock}" />
-            <TextBlock Text="Even" Grid.Row="15" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource OutsideBetTextBlock}" />
-
-            <Viewbox x:Name="LogoOnRedBet" Grid.Row="15" Grid.Column="14" Grid.RowSpan="2" Grid.ColumnSpan="6" Margin="16">
-                <Path x:Name="logoPathOnRed" Style="{StaticResource SurlyLogoPathStyle}" Data="{StaticResource SurlyLogoPathData}" Fill="White" Opacity="0.5"/>
-            </Viewbox>
-            <Viewbox x:Name="LogoOnBlackBet" Grid.Row="15" Grid.Column="20" Grid.RowSpan="2" Grid.ColumnSpan="6" Margin="16">
-                <Path x:Name="logoPathOnBlack" Style="{StaticResource SurlyLogoPathStyle}" Data="{StaticResource SurlyLogoPathData}" Fill="White" Opacity="0.5"/>
-            </Viewbox>
-
-            <TextBlock Text="Odd" Grid.Row="15" Grid.Column="26" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource OutsideBetTextBlock}" />
-            <TextBlock Text="19 to 36" Grid.Row="15" Grid.Column="32" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource OutsideBetTextBlock}" />
-
-            <TextBlock Text="1st 12" Grid.Row="13" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="12" Style="{StaticResource OutsideBetTextBlock}" />
-            <TextBlock Text="2nd 12" Grid.Row="13" Grid.Column="14" Grid.RowSpan="2" Grid.ColumnSpan="12" Style="{StaticResource OutsideBetTextBlock}" />
-            <TextBlock Text="3rd 12" Grid.Row="13" Grid.Column="26" Grid.RowSpan="2" Grid.ColumnSpan="12" Style="{StaticResource OutsideBetTextBlock}" />
-
-            <TextBlock Text="2to1" Grid.Row="1" Grid.Column="38" Grid.RowSpan="4" Grid.ColumnSpan="2" Style="{StaticResource OutsideBetTextBlock}"/>
-            <TextBlock Text="2to1" Grid.Row="5" Grid.Column="38" Grid.RowSpan="4" Grid.ColumnSpan="2" Style="{StaticResource OutsideBetTextBlock}"/>
-            <TextBlock Text="2to1" Grid.Row="9" Grid.Column="38" Grid.RowSpan="4" Grid.ColumnSpan="2" Style="{StaticResource OutsideBetTextBlock}"/>
-
-            <TextBlock Text="00" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="2" Style="{StaticResource OutsideBetTextBlock}" />
-            <TextBlock Text="0" Grid.Row="7" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="2" Style="{StaticResource OutsideBetTextBlock}" />
-
-            <!-- OUTSIDE BET BUTTONS -->
-            <!-- 0 and 00 -->
-            <local:BettingGridButton x:Name="FirstBetBtn" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="ZeroStraight_Click"/>
-            <local:BettingGridButton Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="ZeroStraight_Click"/>
-
-            <!-- Column Bets -->
-            <local:BettingGridButton Grid.Row="1" Grid.Column="38" Grid.ColumnSpan="2" Grid.RowSpan="4" Style="{StaticResource InvisibleGridBtn}" Click="ColumnBet_Click"/>
-            <local:BettingGridButton Grid.Row="5" Grid.Column="38" Grid.ColumnSpan="2" Grid.RowSpan="4" Style="{StaticResource InvisibleGridBtn}" Click="ColumnBet_Click"/>
-            <local:BettingGridButton Grid.Row="9" Grid.Column="38" Grid.ColumnSpan="2" Grid.RowSpan="4" Style="{StaticResource InvisibleGridBtn}" Click="ColumnBet_Click"/>
-
-            <!-- Dozen Bets -->
-            <local:BettingGridButton Grid.Column="2" Grid.Row="14" Grid.ColumnSpan="12" Grid.RowSpan="1" Style="{StaticResource InvisibleGridBtn}" Click="DozenBet_Click"/>
-            <local:BettingGridButton Grid.Column="14" Grid.Row="14" Grid.ColumnSpan="12" Grid.RowSpan="1" Style="{StaticResource InvisibleGridBtn}" Click="DozenBet_Click"/>
-            <local:BettingGridButton Grid.Column="25" Grid.Row="14" Grid.ColumnSpan="13" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DozenBet_Click"/>
-
-            <!-- 1 to 18 and 19 to 36 -->
-            <local:BettingGridButton Grid.Row="15" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
-            <local:BettingGridButton Grid.Row="15" Grid.Column="32" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
-
-            <!-- Even and Odd -->
-            <local:BettingGridButton Grid.Row="15" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
-            <local:BettingGridButton Grid.Row="15" Grid.Column="26" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
-
-            <!-- Red and Black -->
-            <local:BettingGridButton Grid.Row="15" Grid.Column="14" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
-            <local:BettingGridButton Grid.Row="15" Grid.Column="20" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
-
-            <!-- *************** INSIDE BET BUTTONS **********************-->           
-            <!-- Row 3: Standard street 123 -->
-            <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click" Height="30" VerticalAlignment="Bottom"/>
-            <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- Row 4: Split 123 and 456 -->
-            <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 6: Standard street 456 -->
-            <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- Row 7: Split 456 and 789 -->
-            <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 9: Standard street 789 -->
-            <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click" Height="35" VerticalAlignment="Top"/>
-            <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- Row 10: Split 789 and 10 11 12 -->
-            <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 12: Standard street 10 11 12 -->
-            <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click" Height="20" VerticalAlignment="Top"/>
-
-            <!-- Row 13: Split 10 11 12 and 13 14 15 -->
-            <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 15: Standard street 13 14 15 -->
-            <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- Row 16: Split 13 14 15 and 16 17 18 -->
-            <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 18: Standard street 16 17 18 -->
-            <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- Row 19: Split 16 17 18 and 19 20 21 -->
-            <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 21: Standard street 19 20 21 -->
-            <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- Row 22: Split 19 20 21 and 22 23 24 -->
-            <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 9: Standard street 22 23 24 -->
-            <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- Row 7: Split 22 23 24 and 25 26 27 -->
-            <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 9: Standard street 25 26 27 -->
-            <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- Row 7: Split 25 26 27 and 28 29 30 -->
-            <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click" HorizontalAlignment="Right" Width="20"/>
-            <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 9: Standard street 28 29 30 -->
-            <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- Row 7: Split 28 29 30 and 31 32 33 -->
-            <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 9: Standard street 31 32 33 -->
-            <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- Row 34: Split 31 32 33 and 34 35 36 -->
-            <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-            <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
-            <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
-            <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
-
-            <!-- Row 36: Standard street 34 35 36 -->
-            <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-            <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
-            <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
-            <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
-
-            <!-- DEBUG TEXT BOX, COMMENT OUT -->
-            <TextBox x:Name="TableDebugOutput" Grid.Row="19" Grid.ColumnSpan="40" Text="Output Text" FontSize="9" IsReadOnly="True" Visibility="Collapsed" />
-        </Grid>
+    <Grid x:Name="tableGrid" RenderTransformOrigin="0.5,0.5" Width="580" Height="305">
+        <Grid.RenderTransform>
+            <CompositeTransform/>
+        </Grid.RenderTransform>
+        <Grid.Projection>
+            <PlaneProjection/>
+        </Grid.Projection>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource SplitPlusNumberHalf}"/>
+
+            <RowDefinition Height="{StaticResource SplitColumn}"/>
+            <!--<RowDefinition Height="{StaticResource NumberRowHeight}"/>-->
+            <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
+            <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
+            <RowDefinition Height="{StaticResource SplitColumn}"/>
+
+            <RowDefinition Height="{StaticResource SplitColumn}"/>
+            <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
+            <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
+            <RowDefinition Height="{StaticResource SplitColumn}"/>
+
+            <RowDefinition Height="{StaticResource SplitColumn}"/>
+            <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
+            <RowDefinition Height="{StaticResource NumberRowHalfHeight}"/>
+            <RowDefinition Height="{StaticResource SplitColumn}"/>
+
+            <RowDefinition Height="{StaticResource SplitColumn}"/>
+            <RowDefinition Height="{StaticResource OutsideRowHeight}"/>
+
+            <RowDefinition Height="{StaticResource OutsideRowHeight}"/>
+            <RowDefinition Height="{StaticResource SplitColumn}"/>
+            <RowDefinition Height="{StaticResource SplitColumn}"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="{StaticResource OutsideColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource NumberColumnWidth}"/>
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+
+            <ColumnDefinition Width="{StaticResource SplitColumn}"/>
+            <ColumnDefinition Width="{StaticResource OutsideColumnWidth}"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- GRID CELL FILL COLORS -->
+        <Rectangle Grid.Row="15" Grid.Column="14" Grid.RowSpan="2" Grid.ColumnSpan="6" Fill="{StaticResource FiveChipRed}" Opacity="0.7"/>
+        <Rectangle Grid.Row="15" Grid.Column="20" Grid.RowSpan="2" Grid.ColumnSpan="6" Fill="Black" Opacity="0.7"/>
+
+        <!--Borders for Roulette Table-->
+        <!--4 sided enclosure: All Number Columns, Zero bets, and 2 to 1s-->
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="2" Grid.Row="1" Grid.RowSpan="12" Grid.ColumnSpan="40" CornerRadius="4"/>
+
+        <!--Zero and Double Zero divider-->
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="0,1,0,0" Grid.Row="7" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
+
+        <!--Rows of Number Grid. Single Border with Top and Bottom visible -->
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="0,1" Grid.Row="5" Grid.Column="2" Grid.RowSpan="4" Grid.ColumnSpan="38"/>
+
+        <!--Columns of Number Grid. Each Border is a pair (left and right)-->
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="2,0,2,2" Grid.Row="1" Grid.Column="2" Grid.RowSpan="16" Grid.ColumnSpan="36" CornerRadius="4"/>
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="5" Grid.RowSpan="12"/>
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0" Grid.Row="1" Grid.Column="8" Grid.RowSpan="12" Grid.ColumnSpan="3"/>
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="14" Grid.RowSpan="16"/>
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="17" Grid.RowSpan="12"/>
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0" Grid.Row="1" Grid.Column="20" Grid.RowSpan="12" Grid.ColumnSpan="3"/>
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="26" Grid.RowSpan="16"/>
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="29" Grid.RowSpan="12"/>
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0" Grid.Row="1" Grid.Column="32" Grid.RowSpan="12" Grid.ColumnSpan="3"/>
+        <!--<Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="37" Grid.RowSpan="16" Grid.ColumnSpan="1"/>-->
+
+        <!--Vertical Dividers of Outside Bet bottom row-->
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="15" Grid.Column="8" Grid.RowSpan="2"/>
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="15" Grid.Column="20" Grid.RowSpan="2"/>
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="1,0,0,0" Grid.Row="15" Grid.Column="32" Grid.RowSpan="2"/>
+
+        <!--Boundaries of outside bet area-->
+        <Border BorderBrush="{StaticResource RouletteTableDividerColor}" BorderThickness="0,1,0,0" Grid.Row="15" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="36"/>
+
+        <!-- Background artwork for grid -->
+        <!-- 1, 2, 3 -->
+        <local:NumberOval TextContent="1" Grid.Row="9" Grid.Column="2" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="2" Grid.Row="5" Grid.Column="2" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="3" Grid.Row="1" Grid.Column="2" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 4, 5, 6 -->
+        <local:NumberOval TextContent="4" Grid.Row="9" Grid.Column="5" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="5" Grid.Row="5" Grid.Column="5" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="6" Grid.Row="1" Grid.Column="5" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 7, 8, 9 -->
+        <local:NumberOval TextContent="7" Grid.Row="9" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="8" Grid.Row="5" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="9" Grid.Row="1" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 10, 11, 12 -->
+        <local:NumberOval TextContent="10" Grid.Row="9" Grid.Column="11" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="11" Grid.Row="5" Grid.Column="11" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="12" Grid.Row="1" Grid.Column="11" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 13, 14, 15 -->
+        <local:NumberOval TextContent="13" Grid.Row="9" Grid.Column="14" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="14" Grid.Row="5" Grid.Column="14" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="15" Grid.Row="1" Grid.Column="14" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 16, 17, 18 -->
+        <local:NumberOval TextContent="16" Grid.Row="9" Grid.Column="17" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="17" Grid.Row="5" Grid.Column="17" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="18" Grid.Row="1" Grid.Column="17" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 19, 20, 21 -->
+        <local:NumberOval TextContent="19" Grid.Row="9" Grid.Column="20" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="20" Grid.Row="5" Grid.Column="20" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="21" Grid.Row="1" Grid.Column="20" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 22, 23, 24 -->
+        <local:NumberOval TextContent="22" Grid.Row="9" Grid.Column="23" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="23" Grid.Row="5" Grid.Column="23" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="24" Grid.Row="1" Grid.Column="23" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 25, 26, 27 -->
+        <local:NumberOval TextContent="25" Grid.Row="9" Grid.Column="26" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="26" Grid.Row="5" Grid.Column="26" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="27" Grid.Row="1" Grid.Column="26" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 28, 29, 30 -->
+        <local:NumberOval TextContent="28" Grid.Row="9" Grid.Column="29" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="29" Grid.Row="5" Grid.Column="29" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="30" Grid.Row="1" Grid.Column="29" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 31, 32, 33 -->
+        <local:NumberOval TextContent="31" Grid.Row="9" Grid.Column="32" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="32" Grid.Row="5" Grid.Column="32" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="33" Grid.Row="1" Grid.Column="32" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- 34, 35, 36 -->
+        <local:NumberOval TextContent="34" Grid.Row="9" Grid.Column="35" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="35" Grid.Row="5" Grid.Column="35" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <local:NumberOval TextContent="36" Grid.Row="1" Grid.Column="35" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+
+        <!-- ****************** END BACKGROUND ARTWORK ************************* -->
+
+        <!-- Outside bet text blocks / icons -->
+        <TextBlock Text="1 to 18" Grid.Row="15" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource OutsideBetTextBlock}" />
+        <TextBlock Text="Even" Grid.Row="15" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource OutsideBetTextBlock}" />
+
+        <Viewbox x:Name="LogoOnRedBet" Grid.Row="15" Grid.Column="14" Grid.RowSpan="2" Grid.ColumnSpan="6" Margin="16">
+            <Path x:Name="logoPathOnRed" Style="{StaticResource SurlyLogoPathStyle}" Data="{StaticResource SurlyLogoPathData}" Fill="White" Opacity="0.5"/>
+        </Viewbox>
+        <Viewbox x:Name="LogoOnBlackBet" Grid.Row="15" Grid.Column="20" Grid.RowSpan="2" Grid.ColumnSpan="6" Margin="16">
+            <Path x:Name="logoPathOnBlack" Style="{StaticResource SurlyLogoPathStyle}" Data="{StaticResource SurlyLogoPathData}" Fill="White" Opacity="0.5"/>
+        </Viewbox>
+
+        <TextBlock Text="Odd" Grid.Row="15" Grid.Column="26" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource OutsideBetTextBlock}" />
+        <TextBlock Text="19 to 36" Grid.Row="15" Grid.Column="32" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource OutsideBetTextBlock}" />
+
+        <TextBlock Text="1st 12" Grid.Row="13" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="12" Style="{StaticResource OutsideBetTextBlock}" />
+        <TextBlock Text="2nd 12" Grid.Row="13" Grid.Column="14" Grid.RowSpan="2" Grid.ColumnSpan="12" Style="{StaticResource OutsideBetTextBlock}" />
+        <TextBlock Text="3rd 12" Grid.Row="13" Grid.Column="26" Grid.RowSpan="2" Grid.ColumnSpan="12" Style="{StaticResource OutsideBetTextBlock}" />
+
+        <TextBlock Text="2to1" Grid.Row="1" Grid.Column="38" Grid.RowSpan="4" Grid.ColumnSpan="2" Style="{StaticResource OutsideBetTextBlock}"/>
+        <TextBlock Text="2to1" Grid.Row="5" Grid.Column="38" Grid.RowSpan="4" Grid.ColumnSpan="2" Style="{StaticResource OutsideBetTextBlock}"/>
+        <TextBlock Text="2to1" Grid.Row="9" Grid.Column="38" Grid.RowSpan="4" Grid.ColumnSpan="2" Style="{StaticResource OutsideBetTextBlock}"/>
+
+        <TextBlock Text="00" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="2" Style="{StaticResource OutsideBetTextBlock}" />
+        <TextBlock Text="0" Grid.Row="7" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="2" Style="{StaticResource OutsideBetTextBlock}" />
+
+        <!-- OUTSIDE BET BUTTONS -->
+        <!-- 0 and 00 -->
+        <local:BettingGridButton x:Name="FirstBetBtn" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="ZeroStraight_Click"/>
+        <local:BettingGridButton Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="ZeroStraight_Click"/>
+
+        <!-- Column Bets -->
+        <local:BettingGridButton Grid.Row="1" Grid.Column="38" Grid.ColumnSpan="2" Grid.RowSpan="4" Style="{StaticResource InvisibleGridBtn}" Click="ColumnBet_Click"/>
+        <local:BettingGridButton Grid.Row="5" Grid.Column="38" Grid.ColumnSpan="2" Grid.RowSpan="4" Style="{StaticResource InvisibleGridBtn}" Click="ColumnBet_Click"/>
+        <local:BettingGridButton Grid.Row="9" Grid.Column="38" Grid.ColumnSpan="2" Grid.RowSpan="4" Style="{StaticResource InvisibleGridBtn}" Click="ColumnBet_Click"/>
+
+        <!-- Dozen Bets -->
+        <local:BettingGridButton Grid.Column="2" Grid.Row="14" Grid.ColumnSpan="12" Grid.RowSpan="1" Style="{StaticResource InvisibleGridBtn}" Click="DozenBet_Click"/>
+        <local:BettingGridButton Grid.Column="14" Grid.Row="14" Grid.ColumnSpan="12" Grid.RowSpan="1" Style="{StaticResource InvisibleGridBtn}" Click="DozenBet_Click"/>
+        <local:BettingGridButton Grid.Column="25" Grid.Row="14" Grid.ColumnSpan="13" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DozenBet_Click"/>
+
+        <!-- 1 to 18 and 19 to 36 -->
+        <local:BettingGridButton Grid.Row="15" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
+        <local:BettingGridButton Grid.Row="15" Grid.Column="32" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
+
+        <!-- Even and Odd -->
+        <local:BettingGridButton Grid.Row="15" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
+        <local:BettingGridButton Grid.Row="15" Grid.Column="26" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
+
+        <!-- Red and Black -->
+        <local:BettingGridButton Grid.Row="15" Grid.Column="14" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
+        <local:BettingGridButton Grid.Row="15" Grid.Column="20" Grid.RowSpan="2" Grid.ColumnSpan="6" Style="{StaticResource InvisibleGridBtn}" Click="HalfBet_Click"/>
+
+        <!-- *************** INSIDE BET BUTTONS **********************-->
+        <!-- Row 3: Standard street 123 -->
+        <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click" Height="30" VerticalAlignment="Bottom"/>
+        <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="3" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- Row 4: Split 123 and 456 -->
+        <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="4" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 6: Standard street 456 -->
+        <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="6" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- Row 7: Split 456 and 789 -->
+        <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="7" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 9: Standard street 789 -->
+        <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click" Height="35" VerticalAlignment="Top"/>
+        <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="9" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- Row 10: Split 789 and 10 11 12 -->
+        <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="10" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 12: Standard street 10 11 12 -->
+        <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="12" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click" Height="20" VerticalAlignment="Top"/>
+
+        <!-- Row 13: Split 10 11 12 and 13 14 15 -->
+        <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="13" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 15: Standard street 13 14 15 -->
+        <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="15" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- Row 16: Split 13 14 15 and 16 17 18 -->
+        <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="16" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 18: Standard street 16 17 18 -->
+        <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="18" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- Row 19: Split 16 17 18 and 19 20 21 -->
+        <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="19" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 21: Standard street 19 20 21 -->
+        <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="21" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- Row 22: Split 19 20 21 and 22 23 24 -->
+        <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="22" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 9: Standard street 22 23 24 -->
+        <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="24" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- Row 7: Split 22 23 24 and 25 26 27 -->
+        <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="25" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 9: Standard street 25 26 27 -->
+        <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="27" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- Row 7: Split 25 26 27 and 28 29 30 -->
+        <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click" HorizontalAlignment="Right" Width="20"/>
+        <local:BettingGridButton Grid.Column="28" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 9: Standard street 28 29 30 -->
+        <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="30" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- Row 7: Split 28 29 30 and 31 32 33 -->
+        <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="31" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 9: Standard street 31 32 33 -->
+        <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="33" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- Row 34: Split 31 32 33 and 34 35 36 -->
+        <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+        <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click" />
+        <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SquareBet_Click"/>
+        <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="34" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="DoubleStreet_Click"/>
+
+        <!-- Row 36: Standard street 34 35 36 -->
+        <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource StreetRowOutside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+        <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource NumberBtnRow3}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource SplitBtnRow23}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource NumberBtnRow2}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource SplitBtnRow12}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="SplitBet_Click"/>
+        <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource NumberBtnRow1}" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StraightBet_Click"/>
+        <local:BettingGridButton Grid.Column="36" Grid.Row="{StaticResource StreetRowInside}" Grid.ColumnSpan="1" Grid.RowSpan="2" Style="{StaticResource InvisibleGridBtn}" Click="StreetBet_Click"/>
+
+        <!-- DEBUG TEXT BOX, COMMENT OUT -->
+        <TextBox x:Name="TableDebugOutput" Grid.Row="19" Grid.ColumnSpan="40" Text="Output Text" FontSize="9" IsReadOnly="True" Visibility="Collapsed" />
+    </Grid>
 
 
 

@@ -1,18 +1,14 @@
-﻿<UserControl x:Name="RouletteWheel1"
-    x:Class="SurlyRoulette.Views.RouletteWheel"
+﻿<UserControl
+    x:Class="SurlyRouletteUniversal.Views.RouletteWheel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:SurlyRoulette.Views"
+    xmlns:local="using:SurlyRouletteUniversal.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="597"
     d:DesignWidth="597">
-    
-    <!-- Wheel spins clockwise at ~2 RPs 
-        Ball spins counterclockwise at 1 RPs
-    -->
-    
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/RouletteWheelBG.png"/>
